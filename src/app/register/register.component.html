@@ -1,0 +1,57 @@
+<div class="card-block">
+  <ng-template [ngIf]="!submitted">
+    <h4 class="card-title">Registrieren</h4>
+    <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
+
+      <div class="card-text">
+        <div [ngClass]="{'form-group': true, 'has-success': email.valid}">
+          <input name="email" [(ngModel)]="Iemail" required type="email" class="form-control form-control-success" id="email" #email="ngModel"
+            pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" placeholder="Email" />
+          <!--<div *ngIf="email.valid" class="form-control-feedback">Email ist gültig</div>-->
+          <div [hidden]="email.valid || email.pristine" class="form-control-feedback">Bitte geben Sie eine gültige Emailadresse ein.</div>
+        </div>
+
+        <div [ngClass]="{'form-group': true, 'has-success': firstname.valid}">
+          <input type="text" name="firstname" [(ngModel)]="Ifirstname" required class="form-control form-control-success" id="firstname"
+            #firstname="ngModel" placeholder="Vorname" />
+          <!--<div *ngIf="firstname.valid" class="form-control-feedback">Email ist gültig</div>-->
+          <div [hidden]="firstname.valid || firstname.pristine" class="form-control-feedback">Bitte geben Sie einen Vornamen an.</div>
+        </div>
+
+        <div [ngClass]="{'form-group': true, 'has-success': lastname.valid}">
+          <input type="text" name="lastname" [(ngModel)]="Ilastname" required class="form-control form-control-success" id="lastname"
+            #lastname="ngModel" placeholder="Nachname" />
+          <!--<div *ngIf="firstname.valid" class="form-control-feedback">Email ist gültig</div>-->
+          <div [hidden]="lastname.valid || lastname.pristine" class="form-control-feedback">Bitte geben Sie einen Nachnamen an.</div>
+        </div>
+
+
+        <div [ngClass]="{'form-group': true, 'has-success': password.valid}">
+          <input type="password" name="password" [(ngModel)]="Ipassword" required class="form-control form-control-success" id="password"
+            #password="ngModel" pattern="^(?=.*\d).{4,50}$" placeholder="Passwort" />
+          <!--<div *ngIf="password.valid" class="form-control-feedback">Passwort ist gültig</div>-->
+          <div [hidden]="password.valid || password.pristine" class="form-control-feedback">Das Password muss mindestens 4 Zeichen lang sein und eine Zahl enthalten.</div>
+        </div>
+
+
+        <div [ngClass]="{'form-group': true, 'has-success': passwordRepeat.valid && password.value == passwordRepeat.value}">
+          <input type="password" name="passwordRepeat" [(ngModel)]="IpasswordRepeat" required class="form-control form-control-success"
+            id="passwordRepeat" #passwordRepeat="ngModel" pattern="^(?=.*\d).{4,50}$" placeholder="Passwort wiederholen" />
+          <!--<div *ngIf="passwordRepeat.valid && password.value == passwordRepeat.value" class="form-control-feedback">Passwort ist gültig</div>-->
+          <div [hidden]="passwordRepeat.pristine || (passwordRepeat.valid && password.valid && password.value == passwordRepeat.value)"
+            class="form-control-feedback">Die Passwörter müssen übereinstimmen.</div>
+        </div>
+        <small id="general-Information" class="form-text text-muted">Diese Informationen werden mit niemandem geteilt.</small>
+      </div>
+
+      <br>
+      <button [disabled]="!registerForm.form.valid || password.value != passwordRepeat.value" type="submit" style="width: 100%" class="btn btn-primary">Registrieren</button>
+    </form>
+  </ng-template>
+  <ng-template [ngIf]="submitted">
+    <h4 class="card-title">Registrierung erfolgreich!</h4>
+    <div class="card-text">
+      Bitte bestätigen Sie ihre Emailadresse.
+    </div>
+  </ng-template>
+</div>

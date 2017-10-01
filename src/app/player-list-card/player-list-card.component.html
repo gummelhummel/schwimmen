@@ -1,0 +1,20 @@
+<div class="card" *ngIf="player">
+  <!--<img class="card-img-top" src="http://via.placeholder.com/350x150" alt="Card image cap">-->
+  <div class="card-block">
+    <h4 class="card-title">{{position + 1}}. {{player.firstname}} {{player.lastname}} <span class="badge badge-success my-float-right">{{player.totalmeters}} m</span></h4>
+    <small>hat das Gewässer <a href="{{riverLink}}" target="_blank">{{riverName}}</a> durchschwommen</small>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item" *ngFor="let type of player.perCategory">
+      <div style="width: 100%">
+        <div class="my-float-left">
+          <b>{{type.type}}:</b>
+        </div>
+        <div class="my-float-right">
+          <span class="badge badge-success">{{type.meters}} m</span>
+        </div>
+      </div>
+    </li>
+  </ul>
+  <a style="width: 100%" routerLink="/schwimmer/{{player._id}}" class="btn btn-primary">ansehen</a>
+</div>

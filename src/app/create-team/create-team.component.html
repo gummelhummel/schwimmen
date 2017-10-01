@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <div class="card">
+      <div class="card-block">
+        <h4 class="card-title">Team erstellen</h4>
+        <h6 class="card-subtitle mb-2 text-muted">... einmal Chef sein!</h6>
+        <hr>
+        <div class="card-text">
+          <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+
+            <div class="card-text">
+              <div [ngClass]="{'form-group': true, 'has-success': name.valid}">
+                <input name="name" [(ngModel)]="Iname" required type="text" class="form-control form-control-success" id="name" #name="ngModel"
+                  placeholder="Teamname" />
+                <div [hidden]="name.valid || name.pristine" class="form-control-feedback">Bitte geben Sie einen Teamnamen ein.</div>
+              </div>
+
+              <div [ngClass]="{'form-group': true, 'has-success': description.valid}">
+                <label for="exampleTextarea">Beschreibe dein Team:</label>
+                <textarea name="description" [(ngModel)]="Idescription" required class="form-control form-control-success" id="description"
+                  #description="ngModel" rows="3"></textarea>
+              </div>
+
+              <br>
+              <button [disabled]="!loginForm.form.valid" type="submit" style="width: 100%" class="btn btn-primary">Erstellen</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

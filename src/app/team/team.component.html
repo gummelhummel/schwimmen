@@ -1,0 +1,52 @@
+<div class="row" *ngIf="team">
+  <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <div class="card mb-3">
+      <!--<img class="card-img-top" src="http://via.placeholder.com/1500x500" alt="Card image cap">-->
+      <div class="card-block">
+        <h4 class="card-title">{{team.teamname}}</h4>
+        <h1><span class="my-float-right badge badge-primary">{{team.totalmeters}} m</span></h1>
+        <p class="card-text">{{team.description}}</p>
+        <ng-template [ngIf]="lS.isLogedIn">
+          <button *ngIf="!lS.hasTeam" (click)="join()" class="btn btn-primary">beitreten</button>
+          <button *ngIf="team._id == lS.isInTeam" (click)="leave()" class="btn btn-danger">verlassen</button>
+        </ng-template>
+      </div>
+      <div class="card-block">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6" *ngFor="let member of team.members; let i = index">
+              <div class="card">
+                <div class="card-block">
+                 <h3><a routerLink="/schwimmer/{{member.userID}}">{{member.firstname}} {{member.lastname}}</a> <span class="my-float-right badge badge-primary">{{member.meters}} m</span></h3>
+                  <!--<img src="http://via.placeholder.com/50x50" class="img-thumbnail">{{i + 1}}. {{member.firstname}} {{member.lastname}}-->
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item" *ngFor="let type of member.perCategory">
+                    <div style="width: 100%">
+                      <div class="my-float-left">
+                        {{type.type}}:
+                      </div>
+                      <div class="my-float-right">
+                        <span class="badge badge-success">{{type.meters}} m</span>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--<div class="card-block">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
+            Chart 1 <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+          </div>
+          <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
+            Chart 2
+          </div>
+        </div>
+      </div>-->
+    </div>
+  </div>
+</div>

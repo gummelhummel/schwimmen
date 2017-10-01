@@ -1,0 +1,5 @@
+<div class="row">
+  <div *ngFor="let team of teams; let i = index" class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+    <app-team-list-card [team]="team" [position]="i + 1"></app-team-list-card>
+  </div>
+</div>

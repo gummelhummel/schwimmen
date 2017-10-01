@@ -1,0 +1,54 @@
+<div class="row">
+  <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <div class="jumbotron">
+      <p class="h1">Willkommen!</p>
+      <p class="lead">
+        auf schwimmen.spoekes-band.de - The Challenge!<br><br> Registriere dich und trage deine Erfolge ein! Mach dein eigenes Team
+        auf oder unterstütze ein vorhandenes.
+      </p>
+      <hr class="my-4">
+      <p>Es gibt nur eine Regel.<br> <b>Fair Play</b> trage nur die Werte ein, die du auch tatsächlich geschwommen bist. <br>        Viel Spaß!</p>
+      <p class="lead">
+        <!--<a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>-->
+      </p>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+    <div class="list">
+      <a routerLink="/schwimmer"><p class="h1">Einzelwertung</p></a>
+      <br>
+      <table class="table table-sm">
+        <tbody>
+          <tr class="rank-entry" routerLink="schwimmer/{{player._id}}" *ngFor="let player of players; let i = index">
+            <th scope="row">{{i + 1}}</th>
+            <!--<td><img src="http://via.placeholder.com/50x50" class="img-thumbnail"></td>-->
+            <td>{{player.firstname}} {{player.lastname}}</td>
+            <td></td>
+            <td>{{player.totalmeters}} m</td>
+            <td><i class="fa fa-user" aria-hidden="true"></i></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+    <div class="list">
+      <a routerLink="teams"><p class="h1">Teamwertung</p></a>
+      <br>
+      <table class="table table-sm">
+        <tbody>
+          <tr class="rank-entry" routerLink="team/{{team._id}}" *ngFor="let team of teams; let i = index">
+            <th scope="row">{{i + 1}}</th>
+            <!--<td><img src="http://via.placeholder.com/50x50" class="img-thumbnail"></td>-->
+            <td>{{team.teamname}}</td>
+            <td>{{team.totalmeters}} m</td>
+            <td><i class="fa fa-users" aria-hidden="true"></i></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

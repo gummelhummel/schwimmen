@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <div *ngIf="nS.seconds > 0" [ngClass]="{'alert': true, 'alert-success': nS.type == 'success', 'alert-info': nS.type == 'info', 'alert-warning': nS.type == 'warning', 'alert-danger': nS.type == 'danger'}"
+      role="alert">
+      {{nS.message}} 
+      <!--<span (click)="close()" class="close-button my-float-right">X</span>-->
+    </div>
+    <div *ngIf="nS.seconds == 0" class="alert">
+      <br>
+    </div>
+  </div>
+</div>

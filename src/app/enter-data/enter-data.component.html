@@ -1,0 +1,76 @@
+<div class="row">
+  <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <p></p>
+    <div class="card text-center">
+      <div class="card-block">
+        <h3 class="card-title">Ich war schwimmen...</h3>
+        <h6 class="card-subtitle mb-2 text-muted">...und es hat gut getan!</h6>
+        <div class="card-text">
+          <div class="row">
+            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+              <button (click)="typeClick(0)" [ngClass]="{'btn': true, 'my-btn': true, 'btn-secondary': !types[0].checked, 'btn-info': types[0].checked}"
+                type="button">Kraul</button>
+              <p></p>
+            </div>
+            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+              <button (click)="typeClick(1)" [ngClass]="{'btn': true, 'my-btn': true, 'btn-secondary': !types[1].checked, 'btn-info': types[1].checked}"
+                type="button">Brust</button>
+              <p></p>
+            </div>
+            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+              <button (click)="typeClick(2)" [ngClass]="{'btn': true, 'my-btn': true, 'btn-secondary': !types[2].checked, 'btn-info': types[2].checked}"
+                type="button">Rücken</button>
+              <p></p>
+            </div>
+            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+              <button (click)="typeClick(3)" [ngClass]="{'btn': true, 'my-btn': true, 'btn-secondary': !types[3].checked, 'btn-info': types[3].checked}"
+                type="button">Freistil</button>
+              <p></p>
+            </div>
+          </div>
+
+          <div class="row" *ngIf="checkedType != ''">
+            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+              <button (click)="plus()" [ngClass]="{'btn': true, 'my-btn': true, 'btn-success': true, 'btn-primary': false}" type="button">+</button>
+              <p>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+              <button (click)="minus()" [ngClass]="{'btn': true, 'my-btn': true, 'btn-danger': true, 'btn-primary': false}" type="button">-</button>
+              <p>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
+              <p class="h5">Bahnen: {{bahnen}} </p>
+              <p></p>
+            </div>
+          </div>
+
+          <div class="row" *ngIf="checkedType != '' && bahnen > 0">
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+              <p></p>
+              <p class="h5">
+                Du bist {{bahnen}} Bahnen {{checkedType}} geschwommmen. <br> Das sind {{bahnen * 50}}m. 
+                  <ng-template [ngIf]="bahnen < 10">Nicht schlecht!</ng-template>
+                  <ng-template [ngIf]="bahnen >= 10 && bahnen < 30">Sehr Gut!</ng-template>
+                  <ng-template [ngIf]="bahnen >= 30 && bahnen < 100">Krass!</ng-template>
+                  <ng-template [ngIf]="bahnen >= 100">Angeber!</ng-template>
+              </p>
+              <p></p>
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" *ngIf="checkedType != '' && bahnen > 0">
+              <button (click)="save()" [ngClass]="{'btn': true, 'my-btn': true, 'btn-primary': true}" type="button">speichern</button>
+              <p></p>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+              <button (click)="abort()" [ngClass]="{'btn': true, 'my-btn': true, 'btn-secondary': true}" type="button">abbrechen</button>
+              <p></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

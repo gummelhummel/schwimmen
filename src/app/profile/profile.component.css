@@ -1,0 +1,16 @@
+.card {
+    margin: 1em;
+}
+
+.cover-image {
+    background: url('http://www.ksta.de/image/6139906/2x1/940/470/bacf31f0605970b7c8e19bc33add7ece/hQ/bga-melbbad-im-august-2007-jpg.jpg') no-repeat center center;
+    background-size:100% auto;
+    background-size: cover;
+    width: 100%;
+    border-top-right-radius: calc(.25rem - 1px);
+    border-top-left-radius:  calc(.25rem - 1px);
+}
+
+.profile-image {
+    margin: 1em;
+}

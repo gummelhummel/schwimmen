@@ -1,0 +1,34 @@
+.list {
+    padding: 1em;
+}
+.jumbotron {
+    margin: 1em;
+}
+
+.rank-entry:hover {
+    color: #0275d8;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: #0275d8;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #0275d8;
+}
+
+a:link {
+    text-decoration: none;
+    color: #0275d8;
+}
+a:visited {
+    text-decoration: none;
+    color: #0275d8;
+}
+a:active {
+    text-decoration: none;
+    color: #0275d8;
+}
